@@ -43,11 +43,13 @@ convert.addEventListener("click",(e)=>{
     e.preventDefault()
  
     let userInput = document.querySelector("#word").value;
+    userInput = userInput.replace("and"," ");
     let output = document.querySelector("#result");
     userInput = userInput.replace(/\s+/g, ' ');
     userInput = userInput.trim();
+    
     userNewWord = userInput.split(/\s+(thousand|hundred)\s+/);
-
+    
     let newNum = []
     let temp = [];
 
