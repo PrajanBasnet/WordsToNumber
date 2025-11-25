@@ -1,4 +1,4 @@
-console.log("Number to Word converter");
+let convert = document.querySelector("#convert");
 
 let test = {
     'zero': 0,
@@ -39,36 +39,38 @@ let zentNumb = {
     'ten lakh': 1000000
 }
 
-let userInput = "one hundred";
-userInput = userInput.replace(/\s+/g, ' ');
-userInput = userInput.trim();
-userNewWord = userInput.split(' ');
-
-let finalWordInNumber = [];
-
-let result = []
-let temp = [];
-let multi = [];
-for(let x of userNewWord){
+convert.addEventListener("click",(e)=>{
+    e.preventDefault()
+    let userInput = document.querySelector("#word").value;
+    let output = document.querySelector("#result");
+    userInput = userInput.replace(/\s+/g, ' ');
+    userInput = userInput.trim();
+    userNewWord = userInput.split(' ');
+     
+    let result = []
+    let temp = [];
+    let multi = [];
+    for(let x of userNewWord){
+        
+        if(test[x]){
+            temp.push(test[x]);
+            result.push(temp)
+            temp = []
+        }
+        if(zentNumb[x]){
+            multi.push(zentNumb[x])
+        }
+        
+    }
+    for (let i = 0; i < result.length; i++) {
+        if(multi.length == result.length){
+            break;
+        }
+        multi.push(1);
+    }
+    let semFinalResult = result.map((data) => data.reduce((a,b) => a+b ,0));
+    let final = semFinalResult.map((data,i) => data * multi[i])
+    let f = final.reduce((a,b)=> a+b);
+    output.innerHTML =` <h1>  ${f} </h1>`;
     
-    if(test[x]){
-        temp.push(test[x]);
-        result.push(temp)
-        temp = []
-    }
-    if(zentNumb[x]){
-        multi.push(zentNumb[x])
-    }
-
-}
-for (let i = 0; i < result.length; i++) {
-    if(multi.length == result.length){
-        break;
-    }
-    multi.push(1);
-}
-let semFinalResult = result.map((data) => data.reduce((a,b) => a+b ,0));
-let final = semFinalResult.map((data,i) => data * multi[i])
-let f = final.reduce((a,b)=> a+b);
-
-console.log(f)
+})

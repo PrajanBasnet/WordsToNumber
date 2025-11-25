@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
+
+body{
+      font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    padding: 0%;
+    margin:0%;
+    background-color: #393D7E;
+    color:white;
+}
+#title{
+    display: flex;
+    justify-content: center;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.btns{
+    width: 40%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+input[type = 'submit']{
+    font-size: 1rem;
+    width: 20%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius:5%;
+    transition: transform  0.6s ease-out , background-color 0.3s ease-in;
+}
+
+input[type = 'submit']:hover{
+    transform: scale(1.1);
+    background-color: #6DC3BB;
+    color: white;
+}
