@@ -54,14 +54,12 @@ convert.addEventListener("click",(e)=>{
     let multi = []
     let add = 0;
     let mulAdd = 0;
-    console.log(userNewWord)
 
 
   for(let x of userNewWord){
    
     if(!test[x] &&  !zentNumb[x]){
         let splitValue = x.split(' ')
-        console.log(splitValue)
         
         for(z of splitValue){
             if(test[z]){
@@ -71,11 +69,8 @@ convert.addEventListener("click",(e)=>{
                 mulAdd += zentNumb[z]
             }
         }
-        console.log("add", add)
         newNum.push([add]);
-        multi.push([mulAdd]);
-
-        
+        multi.push([mulAdd]);   
     }
     
     if(test[x]){
@@ -98,7 +93,6 @@ convert.addEventListener("click",(e)=>{
     let final = semFinalResult.map((data,i) => data * multi[i])
     let f = final.reduce((a,b)=> a+b);
      output.innerHTML =` <h1>  ${f} </h1>`;
- console.log(newNum)
- console.log(f)
+
 
 })

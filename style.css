@@ -60,12 +60,3 @@ header{
 #title{
     animation: spin 3s ease-out 0.4s infinite ;
 }
-@keyframes spin {
-    from {
-        color: #BF1A1A;
-    }
-
-    to {
-        color: rgb(37, 0, 0);
-    }
-}
