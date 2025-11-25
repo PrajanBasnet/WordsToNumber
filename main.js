@@ -41,36 +41,64 @@ let zentNumb = {
 
 convert.addEventListener("click",(e)=>{
     e.preventDefault()
+ 
     let userInput = document.querySelector("#word").value;
     let output = document.querySelector("#result");
     userInput = userInput.replace(/\s+/g, ' ');
     userInput = userInput.trim();
-    userNewWord = userInput.split(' ');
-     
-    let result = []
+    userNewWord = userInput.split(/\s+(thousand|hundred)\s+/);
+
+    let newNum = []
     let temp = [];
-    let multi = [];
-    for(let x of userNewWord){
+
+    let multi = []
+    let add = 0;
+    let mulAdd = 0;
+    console.log(userNewWord)
+
+
+  for(let x of userNewWord){
+   
+    if(!test[x] &&  !zentNumb[x]){
+        let splitValue = x.split(' ')
+        console.log(splitValue)
         
-        if(test[x]){
-            temp.push(test[x]);
-            result.push(temp)
-            temp = []
+        for(z of splitValue){
+            if(test[z]){
+                add += test[z]
+            }
+            if(zentNumb[z]){
+                mulAdd += zentNumb[z]
+            }
         }
-        if(zentNumb[x]){
-            multi.push(zentNumb[x])
-        }
+        console.log("add", add)
+        newNum.push([add]);
+        multi.push([mulAdd]);
+
         
     }
-    for (let i = 0; i < result.length; i++) {
-        if(multi.length == result.length){
+    
+    if(test[x]){
+        temp.push(test[x]);
+        newNum.push(temp);
+        temp = [];
+    }
+       if(zentNumb[x]){
+        multi.push(zentNumb[x]);
+    }
+  }
+
+   for (let i = 0; i < newNum.length; i++) {
+        if(multi.length == newNum.length){
             break;
         }
         multi.push(1);
     }
-    let semFinalResult = result.map((data) => data.reduce((a,b) => a+b ,0));
+    let semFinalResult = newNum.map((data) => data.reduce((a,b) => a+b ,0));
     let final = semFinalResult.map((data,i) => data * multi[i])
     let f = final.reduce((a,b)=> a+b);
-    output.innerHTML =` <h1>  ${f} </h1>`;
-    
+     output.innerHTML =` <h1>  ${f} </h1>`;
+ console.log(newNum)
+ console.log(f)
+
 })

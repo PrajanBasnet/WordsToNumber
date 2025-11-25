@@ -19,6 +19,7 @@ body{
 }
 .container{
     display: flex;
+    margin: 4%;
     align-items: center;
     flex-direction: column;
 }
@@ -44,4 +45,27 @@ input[type = 'submit']:hover{
     transform: scale(1.1);
     background-color: #6DC3BB;
     color: white;
+}
+input[type = 'text']{
+    font-size: 2rem;
+    border: none    ;
+}
+
+header{
+    background-color: #F2AEBB;
+    padding: 1%;
+    box-shadow: 1px 3px 1px  rgb(203, 203, 203);
+}
+
+#title{
+    animation: spin 3s ease-out 0.4s infinite ;
+}
+@keyframes spin {
+    from {
+        color: #BF1A1A;
+    }
+
+    to {
+        color: rgb(37, 0, 0);
+    }
 }
