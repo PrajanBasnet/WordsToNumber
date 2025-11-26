@@ -1,4 +1,3 @@
-let convert = document.querySelector("#convert");
 
 let test = {
     'zero': 0,
@@ -39,13 +38,9 @@ let zentNumb = {
     'ten lakh': 1000000
 }
 
-convert.addEventListener("click",(e)=>{
-    e.preventDefault()
- 
-    let userInput = document.querySelector("#word").value;
-    // userInput = userInput.replace("and"," ");
-    let output = document.querySelector("#result");
-   userInput = userInput.replace(/\s+/g, ' ');
+  let userInput = "one lakh and fifty ";
+
+    userInput = userInput.replace(/\s+/g, ' ');
     userInput = userInput.trim();
     userNewWord = userInput.split(/\s+(lakh|thousand|hundred)\s+/);
 
@@ -58,7 +53,6 @@ convert.addEventListener("click",(e)=>{
     console.log(userNewWord)
 
 
- 
   for(let x of userNewWord){
    
     if(!test[x] &&  !zentNumb[x]){
@@ -101,15 +95,10 @@ convert.addEventListener("click",(e)=>{
     let semFinalResult = newNum.map((data) => data.reduce((a,b) => a+b ,0));
     let final = semFinalResult.map((data,i) => data * multi[i])
     let f = final.reduce((a,b)=> a+b);
+
  console.log(newNum,multi)
 
  console.log("semifinal", semFinalResult)
  console.log(final)
 
  console.log(f)
-
-
-     output.innerHTML =` <h1>  ${f} </h1>`;
-
-
-})
