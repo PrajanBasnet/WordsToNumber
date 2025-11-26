@@ -38,7 +38,7 @@ let zentNumb = {
     'ten lakh': 1000000
 }
 
-  let userInput = "one lakh and fifty ";
+  let userInput = "twelve thousand three hundred and forty five";
 
     userInput = userInput.replace(/\s+/g, ' ');
     userInput = userInput.trim();
