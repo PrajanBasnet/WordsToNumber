@@ -47,6 +47,7 @@ convert.addEventListener("click",(e)=>{
     let output = document.querySelector("#result");
    userInput = userInput.replace(/\s+/g, ' ');
     userInput = userInput.trim();
+    userInput = userInput.toLowerCase();
     userNewWord = userInput.split(/\s+(lakh|thousand|hundred)\s+/);
 
     let newNum = []
